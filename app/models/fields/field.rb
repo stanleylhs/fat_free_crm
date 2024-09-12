@@ -31,8 +31,8 @@
 class Field < ActiveRecord::Base
   acts_as_list
 
-  serialize :collection, Array
-  serialize :settings, HashWithIndifferentAccess
+  serialize :collection, type: Array, coder: YAML
+  serialize :settings, type: HashWithIndifferentAccess, coder: YAML
 
   belongs_to :field_group, optional: true
 
