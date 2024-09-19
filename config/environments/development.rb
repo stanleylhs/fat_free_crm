@@ -1,7 +1,7 @@
 require "active_support/core_ext/integer/time"
 
-if defined?(FatFreeCRM::Application)
-  FatFreeCRM::Application.configure do
+if defined?(FatFreeCrm::Application)
+  FatFreeCrm::Application.configure do
     # Settings specified here will take precedence over those in config/application.rb.
 
     # In the development environment your application's code is reloaded any time
