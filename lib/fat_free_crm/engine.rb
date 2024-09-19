@@ -5,7 +5,7 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-module FatFreeCRM
+module FatFreeCrm
   class Engine < ::Rails::Engine
     config.autoload_paths += Dir[root.join("app/models/**")] +
                              Dir[root.join("app/controllers/entities")]
