@@ -6,7 +6,7 @@
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
 module FatFreeCrm
-  module VERSION # :nodoc:
+  module Version # :nodoc:
     MAJOR = 0
     MINOR = 22
     TINY  = 1
