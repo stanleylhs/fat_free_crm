@@ -22,4 +22,5 @@ Rails.application.config.after_initialize do
 
     I18n.backend.store_translations(Setting.locale.to_sym, translations)
   end
+  rescue ActiveRecord::NoDatabaseError, ActiveRecord::StatementInvalid
 end
