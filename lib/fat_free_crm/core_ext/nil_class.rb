@@ -5,12 +5,18 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-class NilClass
-  def true?
-    false
-  end
+module FatFreeCrm
+  module CoreExt
+    module NilClass
+      def true?
+        false
+      end
 
-  def false?
-    false
+      def false?
+        false
+      end
+    end
   end
 end
+
+NilClass.prepend FatFreeCrm::CoreExt::NilClass

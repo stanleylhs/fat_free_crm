@@ -39,3 +39,8 @@ begin
   require 'redcloth'
 rescue LoadError
 end
+
+module FatFreeCrm
+  module GemDependencies
+  end
+end
