@@ -7,6 +7,8 @@
 #------------------------------------------------------------------------------
 module FatFreeCrm
   module Exportable
+    extend ActiveSupport::Concern
+
     def self.included(base)
       base.extend(ClassMethods)
     end
@@ -47,5 +49,3 @@ module FatFreeCrm
     end
   end
 end
-
-ActiveRecord::Base.include FatFreeCrm::Exportable
