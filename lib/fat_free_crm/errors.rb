@@ -7,6 +7,7 @@
 #------------------------------------------------------------------------------
 module FatFreeCrm
   module Errors
+    extend ActiveSupport::Concern
     # Override ActiveModel::Errors#each so we could display validation
     # errors as is without rendering the attribute name. Simply place
     # a caret as the first character of the error message.
@@ -25,5 +26,3 @@ module FatFreeCrm
     end
   end
 end
-
-ActiveModel::Errors.include FatFreeCrm::Errors

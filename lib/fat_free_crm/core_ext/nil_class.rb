@@ -8,6 +8,7 @@
 module FatFreeCrm
   module CoreExt
     module NilClass
+      extend ActiveSupport::Concern
       def true?
         false
       end
@@ -18,5 +19,3 @@ module FatFreeCrm
     end
   end
 end
-
-NilClass.prepend FatFreeCrm::CoreExt::NilClass

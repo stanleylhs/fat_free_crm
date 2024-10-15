@@ -9,6 +9,8 @@ require 'pathname'
 
 module FatFreeCrm
   module I18n
+    extend ActiveSupport::Concern
+
     #----------------------------------------------------------------------------
     def t(*args)
       if args.size == 1
@@ -39,6 +41,3 @@ module FatFreeCrm
     end
   end
 end
-
-ActionView::Base.include FatFreeCrm::I18n
-ActionController::Base.include FatFreeCrm::I18n

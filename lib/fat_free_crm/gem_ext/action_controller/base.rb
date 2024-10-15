@@ -9,6 +9,8 @@ module FatFreeCrm
   module GemExt
     module ActionController
       module Base
+        extend ActiveSupport::Concern
+
         unless Rails.env.test?
           # Remove helpers residing in subdirectories from the list of application
           # helpers.  Basically we don't want helpers in app/helpers/admin/* to
@@ -22,5 +24,3 @@ module FatFreeCrm
     end
   end
 end
-
-ActionController::Base.prepend FatFreeCrm::GemExt::ActionController::Base

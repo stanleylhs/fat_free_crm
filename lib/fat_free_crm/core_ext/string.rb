@@ -9,8 +9,9 @@
 module FatFreeCrm
   module CoreExt
     module String
+      extend ActiveSupport::Concern
 
-      def self.prepended(mod)
+      def self.included(mod)
         mod.class_eval do
           alias - delete
         end
@@ -57,8 +58,4 @@ module FatFreeCrm
       end
     end
   end
-end
-
-Rails.application.config.after_initialize do
-  String.prepend FatFreeCrm::CoreExt::String
 end

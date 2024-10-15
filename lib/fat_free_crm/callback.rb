@@ -7,6 +7,8 @@
 #------------------------------------------------------------------------------
 module FatFreeCrm
   module Callback
+    extend ActiveSupport::Concern
+
     @@classes   = []  # Classes that inherit from FatFreeCrm::Callback::Base.
     @@responder = {}  # Class instances that respond to (i.e. implement) hook methods.
     # Also includes class instances that implement a
@@ -141,6 +143,3 @@ module FatFreeCrm
     end
   end
 end
-
-ActionView::Base.include FatFreeCrm::Callback::Helper
-ActionController::Base.include FatFreeCrm::Callback::Helper
