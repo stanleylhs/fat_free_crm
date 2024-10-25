@@ -91,7 +91,7 @@ class Contact < ActiveRecord::Base
   has_paper_trail versions: { class_name: 'Version' }, ignore: [:subscribed_users]
 
   has_fields
-  exportable
+  include FatFreeCrm::Exportable
   sortable by: ["first_name ASC", "last_name ASC", "created_at DESC", "updated_at DESC"], default: "created_at DESC"
 
   validates_presence_of :first_name, message: :missing_first_name, if: -> { Setting.require_first_names }

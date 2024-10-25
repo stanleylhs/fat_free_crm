@@ -111,7 +111,7 @@ class Task < ActiveRecord::Base
   has_paper_trail versions: { class_name: 'Version' }, meta: { related: :asset },
                   ignore: [:subscribed_users]
   has_fields
-  exportable
+  include FatFreeCrm::Exportable
 
   validates_presence_of :user
   validates_presence_of :name, message: :missing_task_name
