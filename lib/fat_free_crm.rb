@@ -38,6 +38,8 @@ require "fat_free_crm/export_csv"
 require "fat_free_crm/tabs"
 require "fat_free_crm/view_factory"
 
+require "fat_free_crm/comment_extensions"
+
 require "fat_free_crm/core_ext/nil_class"
 NilClass.include FatFreeCrm::CoreExt::NilClass
 require "fat_free_crm/core_ext/string"
@@ -49,9 +51,6 @@ ActionController::Base.include FatFreeCrm::GemExt::ActionController::Base
 require "fat_free_crm/callback"
 ActionView::Base.include FatFreeCrm::Callback::Helper
 ActionController::Base.include FatFreeCrm::Callback::Helper
-
-require "fat_free_crm/comment_extensions"
-ActiveRecord::Base.include FatFreeCrm::CommentExtensions
 
 require "fat_free_crm/errors"
 ActiveModel::Errors.include FatFreeCrm::Errors

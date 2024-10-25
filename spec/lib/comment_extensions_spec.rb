@@ -19,7 +19,7 @@ describe FatFreeCrm::CommentExtensions do
       class CommentableEntity < ActiveRecord::Base
         serialize :subscribed_users, type: Array, coder: YAML
         acts_as_commentable
-        uses_comment_extensions
+        include FatFreeCrm::CommentExtensions
       end
     end
 

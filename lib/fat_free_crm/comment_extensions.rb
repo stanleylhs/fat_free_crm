@@ -9,20 +9,11 @@ module FatFreeCrm
   module CommentExtensions
     extend ActiveSupport::Concern
 
-    def self.included(base)
-      base.extend(ClassMethods)
-    end
-
-    module ClassMethods
-      def uses_comment_extensions
-        include FatFreeCrm::CommentExtensions::InstanceMethods unless included_modules.include?(InstanceMethods)
-      end
-    end
-
-    module InstanceMethods
+    included do
       def add_comment_by_user(comment_body, user)
         comments.create(comment: comment_body, user: user) if comment_body.present?
       end
     end
+
   end
 end
