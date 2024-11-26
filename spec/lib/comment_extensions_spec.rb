@@ -7,7 +7,7 @@
 #------------------------------------------------------------------------------
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe FatFreeCRM::CommentExtensions do
+describe FatFreeCrm::CommentExtensions do
   describe "add_comment_by_user" do
     let(:user) { create(:user) }
 
@@ -17,9 +17,9 @@ describe FatFreeCRM::CommentExtensions do
       end
 
       class CommentableEntity < ActiveRecord::Base
-        serialize :subscribed_users, Array
+        serialize :subscribed_users, type: Array, coder: YAML
         acts_as_commentable
-        uses_comment_extensions
+        include FatFreeCrm::CommentExtensions
       end
     end
 

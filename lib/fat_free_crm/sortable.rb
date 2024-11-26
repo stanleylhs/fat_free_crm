@@ -5,13 +5,11 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-module FatFreeCRM
+module FatFreeCrm
   module Sortable
-    def self.included(base)
-      base.extend(ClassMethods)
-    end
+    extend ActiveSupport::Concern
 
-    module ClassMethods
+    class_methods do
       # Model class method to define sort options, for example:
       #   sortable :by => "first_name ASC"
       #   sortable :by => [ "first_name ASC", "last_name ASC" ]
@@ -41,5 +39,3 @@ module FatFreeCRM
     end
   end
 end
-
-ActiveRecord::Base.include FatFreeCRM::Sortable

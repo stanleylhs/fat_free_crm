@@ -7,15 +7,15 @@
 #------------------------------------------------------------------------------
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe 'FatFreeCRM::Fields' do
+describe 'FatFreeCrm::Fields' do
   class Foo
-    include FatFreeCRM::Fields
+    include FatFreeCrm::Fields
     include ActiveModel::Validations
     has_fields
   end
 
   class Bar
-    include FatFreeCRM::Fields
+    include FatFreeCrm::Fields
     include ActiveModel::Validations
   end
 
@@ -78,7 +78,7 @@ describe 'FatFreeCRM::Fields' do
     it "should serialize checkbox fields as Array" do
       allow(Foo).to receive(:serialized_attributes).and_return(field1: @f1, field2: @f2)
       expect(Foo).to receive(:fields).and_return([@f1, @f2])
-      expect(Foo).to receive(:serialize).with(:field1, Array)
+      expect(Foo).to receive(:serialize).with(:field1, { coder: Psych, type: Array })
       Foo.serialize_custom_fields!
     end
   end

@@ -38,7 +38,7 @@ class Opportunity < ActiveRecord::Base
   has_many :tasks, as: :asset, dependent: :destroy # , :order => 'created_at DESC'
   has_many :emails, as: :mediator
 
-  serialize :subscribed_users, Array
+  serialize :subscribed_users, type: Array, coder: YAML
 
   scope :state, lambda { |filters|
     where('stage IN (?)' + (filters.delete('other') ? ' OR stage IS NULL' : ''), filters)
@@ -71,11 +71,11 @@ class Opportunity < ActiveRecord::Base
 
   uses_user_permissions
   acts_as_commentable
-  uses_comment_extensions
+  include FatFreeCrm::CommentExtensions
   acts_as_taggable_on :tags
   has_paper_trail versions: { class_name: 'Version' }, ignore: [:subscribed_users]
   has_fields
-  exportable
+  include FatFreeCrm::Exportable
   sortable by: ["name ASC", "amount DESC", "amount*probability DESC", "probability DESC", "closes_on ASC", "created_at DESC", "updated_at DESC"], default: "created_at DESC"
 
   has_ransackable_associations %w[account contacts tags campaign activities emails comments]

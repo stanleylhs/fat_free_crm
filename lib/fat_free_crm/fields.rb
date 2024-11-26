@@ -5,8 +5,9 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-module FatFreeCRM
+module FatFreeCrm
   module Fields
+
     def self.included(base)
       base.extend(ClassMethods)
     end
@@ -36,7 +37,7 @@ module FatFreeCRM
 
       def serialize_custom_fields!
         fields.each do |field|
-          serialize(field.name.to_sym, Array) if field.as == 'check_boxes'
+          serialize(field.name.to_sym, type: Array, coder: YAML) if field.as == 'check_boxes'
         end
       end
 
@@ -90,5 +91,3 @@ module FatFreeCRM
     end
   end
 end
-
-ActiveRecord::Base.include FatFreeCRM::Fields

@@ -48,7 +48,7 @@ class Lead < ActiveRecord::Base
   has_many :addresses, dependent: :destroy, as: :addressable, class_name: "Address" # advanced search uses this
   has_many :emails, as: :mediator
 
-  serialize :subscribed_users, Array
+  serialize :subscribed_users, type: Array, coder: YAML
 
   accepts_nested_attributes_for :business_address, allow_destroy: true, reject_if: proc { |attributes| Address.reject_address(attributes) }
 
@@ -64,11 +64,11 @@ class Lead < ActiveRecord::Base
 
   uses_user_permissions
   acts_as_commentable
-  uses_comment_extensions
+  include FatFreeCrm::CommentExtensions
   acts_as_taggable_on :tags
   has_paper_trail versions: { class_name: 'Version' }, ignore: [:subscribed_users]
   has_fields
-  exportable
+  include FatFreeCrm::Exportable
   sortable by: ["first_name ASC", "last_name ASC", "company ASC", "rating DESC", "created_at DESC", "updated_at DESC"], default: "created_at DESC"
 
   has_ransackable_associations %w[contact campaign tasks tags activities emails addresses comments]

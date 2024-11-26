@@ -7,7 +7,7 @@
 #------------------------------------------------------------------------------
 require 'pathname'
 
-module FatFreeCRM
+module FatFreeCrm
   module I18n
     #----------------------------------------------------------------------------
     def t(*args)
@@ -39,6 +39,3 @@ module FatFreeCRM
     end
   end
 end
-
-ActionView::Base.include FatFreeCRM::I18n
-ActionController::Base.include FatFreeCRM::I18n

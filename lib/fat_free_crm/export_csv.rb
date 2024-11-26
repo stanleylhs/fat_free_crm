@@ -7,8 +7,8 @@
 #------------------------------------------------------------------------------
 require "csv"
 
-module FatFreeCRM
-  class ExportCSV
+module FatFreeCrm
+  class ExportCsv
     # CSV export. Based on to_csv Rails plugin by Ary Djmal
     # https://github.com/arydjmal/to_csv
     #----------------------------------------------------------------------------

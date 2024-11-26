@@ -5,6 +5,9 @@
 # Fat Free CRM is freely distributable under the terms of MIT license.
 # See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-require "fat_free_crm/gem_ext/active_support/buffered_logger"
-require "fat_free_crm/gem_ext/action_controller/base"
-require "fat_free_crm/gem_ext/rake/task" if defined?(Rake)
+ActionController::Renderers.add :csv do |objects, options|
+  filename = options[:filename] || controller_name || 'data'
+  str = FatFreeCrm::ExportCsv.from_array(objects)
+  send_data str, type: :csv,
+                 disposition: "attachment; filename=#{filename}.csv"
+end
