@@ -9,7 +9,6 @@ module FatFreeCrm
   module GemExt
     module ActionController
       module Base
-        extend ActiveSupport::Concern
 
         unless Rails.env.test?
           # Remove helpers residing in subdirectories from the list of application

@@ -7,8 +7,6 @@
 #------------------------------------------------------------------------------
 module FatFreeCrm
   module Permissions
-    extend ActiveSupport::Concern
-
     def self.included(base)
       base.extend(ClassMethods)
     end

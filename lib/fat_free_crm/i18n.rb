@@ -9,8 +9,6 @@ require 'pathname'
 
 module FatFreeCrm
   module I18n
-    extend ActiveSupport::Concern
-
     #----------------------------------------------------------------------------
     def t(*args)
       if args.size == 1

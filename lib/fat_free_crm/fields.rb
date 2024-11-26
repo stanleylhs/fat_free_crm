@@ -7,7 +7,6 @@
 #------------------------------------------------------------------------------
 module FatFreeCrm
   module Fields
-    extend ActiveSupport::Concern
 
     def self.included(base)
       base.extend(ClassMethods)
