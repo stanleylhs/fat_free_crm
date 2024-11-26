@@ -9,11 +9,7 @@ module FatFreeCrm
   module Sortable
     extend ActiveSupport::Concern
 
-    def self.included(base)
-      base.extend(ClassMethods)
-    end
-
-    module ClassMethods
+    class_methods do
       # Model class method to define sort options, for example:
       #   sortable :by => "first_name ASC"
       #   sortable :by => [ "first_name ASC", "last_name ASC" ]

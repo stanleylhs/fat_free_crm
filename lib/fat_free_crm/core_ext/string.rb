@@ -11,10 +11,8 @@ module FatFreeCrm
     module String
       extend ActiveSupport::Concern
 
-      def self.included(mod)
-        mod.class_eval do
-          alias - delete
-        end
+      included do
+        alias - delete
       end
 
       def n2br

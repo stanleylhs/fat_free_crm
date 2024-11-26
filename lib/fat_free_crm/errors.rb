@@ -15,10 +15,8 @@ module FatFreeCrm
     # This feature was handled by 'advanced_errors' plugin in Rails 2.x
     # version of Fat Free CRM.
     #----------------------------------------------------------------------------
-    def self.included(base)
-      base.class_eval do
+    included do
         alias_method :each, :each_with_explicit_error
-      end
     end
 
     def each_with_explicit_error(&block)
